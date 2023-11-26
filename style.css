@@ -10,3 +10,8 @@ body {
 .sticky-footer {
     margin-top: auto; 
 }
+.box {
+    width: 180px;
+    height: 130px;
+    border: 1px solid black;
+}
