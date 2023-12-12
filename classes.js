@@ -1,4 +1,3 @@
-
 // Reusable function to create a modal
 export function createClassModal(title, onSubmit) {
     // Create a new modal

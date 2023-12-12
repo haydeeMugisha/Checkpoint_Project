@@ -12,7 +12,47 @@ body {
 }
 .box {
     width: 180px;
-    height: 130px;
+    min-height: 130px;
     border: 1px solid black;
     position: relative;
+}
+
+/* Add this to your existing CSS or create a new style.css file */
+.class-box-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow boxes to wrap to the next line if needed */
+    min-height: fit-content;
+}
+
+.position-absolute.bottom-0 {
+    left: 40%;
+}
+
+.position-absolute.bottom-0 p {
+    top: 30px;
+}
+
+.class-box h3 {
+    padding-top: 25px;
+}
+
+.text-blue {
+    color: blue;
+    text-decoration: none;
+}
+
+
+/* Add this to your existing CSS or create a new style.css file */
+.box.text-center.class-box {
+    display: inline-block;
+    margin: 0 10px; /* Adjust the margin as needed for spacing */
+    vertical-align: top; /* Align boxes at the top */
+}
+
+/* Optional: Add styles to the edit and remove icons */
+.box.text-center.class-box i.bi {
+    color: blue;
+    cursor: pointer;
+    margin-right: 5px; /* Adjust margin for spacing between icon and text */
 }
