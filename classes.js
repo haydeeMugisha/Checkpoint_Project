@@ -82,6 +82,10 @@ export function addNewClass() {
             <h3>${className}</h3>
             <p>Teacher: ${teacherName}</p>
             <p>${description}</p>
+            <div class="d-flex justify-content-between m-2">
+            <a href="#" class="text-blue">Students</a>
+            <a href="#" class="text-blue">Teachers</a>
+        </div> 
         `;
 
         // Append the new class box to the container

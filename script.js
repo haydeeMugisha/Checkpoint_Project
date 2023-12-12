@@ -42,28 +42,12 @@ const contentMap = {
 };
 
 //to make the home section default
-// ...
-
-//to make the home section default
 window.showContent = function(contentId) {
     const content = contentMap[contentId] || contentMap.home;
     document.querySelector('.container').innerHTML = content.mainContent;
 }
 
-// ...
-
-
 showContent('home');
-//to do tomorrow:
-//class  section:
-//clean the codes(to be reusable).import
-//rearrage the add btn position and icon
-//style the new added box in class section(adaptable width,height)
-//the edit,remove icons  blue.
-//insure the display position of the nbr 2 class,3
-//below the student and teachers links in the box.
 
 //home section:
 //update the home page by adding the class numbers
-
-//
