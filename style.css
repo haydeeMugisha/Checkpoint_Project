@@ -16,7 +16,7 @@ body {
     border: 1px solid black;
     position: relative;
 }
-
+box text-center student-box
 /* Add this to your existing CSS or create a new style.css file */
 .class-box-container {
     display: flex;
@@ -33,7 +33,7 @@ body {
     top: 30px;
 }
 
-.class-box h3 {
+.class-box h3, .student-box h3, .teacher-box h3 {
     padding-top: 25px;
 }
 
@@ -44,14 +44,14 @@ body {
 
 
 /* Add this to your existing CSS or create a new style.css file */
-.box.text-center.class-box {
+.box.text-center.class-box, .box.text-center.student-box, .box.text-center.teacher-box   {
     display: inline-block;
     margin: 0 10px; /* Adjust the margin as needed for spacing */
     vertical-align: top; /* Align boxes at the top */
 }
 
 /* Optional: Add styles to the edit and remove icons */
-.box.text-center.class-box i.bi {
+.box.text-center.class-box i.bi, .box.text-center.student-box i.bi, .box.text-center.teacher-box i.bi {
     color: blue;
     cursor: pointer;
     margin-right: 5px; /* Adjust margin for spacing between icon and text */
