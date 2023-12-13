@@ -104,15 +104,15 @@ export function loadClassesFromLocalStorage() {
         newClassBox.className = 'box text-center class-box';
         newClassBox.innerHTML = `
             <div class="options position-absolute top-0 end-0 mt-2 me-2">
-                <i class="bi bi-pencil" onclick="editClass(this)"></i>
-                <i class="bi bi-trash" onclick="removeClass(this)"></i>
+            <i class="fas fa-edit" onclick="editClass(this)"></i>
+            <i class="bi bi-trash" onclick="removeClass(this)"></i>
             </div>
             <h3>${className}</h3>
             <p>Teacher: ${teacherName}</p>
             <p>${description}</p>
             <div class="d-flex justify-content-between m-2">
                 <a href="#" class="text-blue">Students</a>
-                <a href="#" class="text-blue">Teachers</a>
+                <a href="#" class="text-blue ms-2">Teachers</a>
             </div> 
         `;
 
@@ -127,8 +127,8 @@ export function addNewClass() {
       newClassBox.className = 'box text-center class-box';
       newClassBox.innerHTML = `
         <div class="options position-absolute top-0 end-0 mt-2 me-2">
-          <i class="bi bi-pencil" onclick="editClass(this)"></i>
-          <i class="bi bi-trash" onclick="removeClass(this)"></i>
+        <i class="fas fa-edit" onclick="editClass(this)"></i>
+        <i class="bi bi-trash" onclick="removeClass(this)"></i>
         </div>
         <h3 class="mb-2 font-weight-bold">${className}</h3>
         <p class="mb-2"><span class="text-muted">${teacherName}</span></p>
