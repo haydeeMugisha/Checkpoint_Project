@@ -125,6 +125,11 @@ export function addNewStudent() {
                 <a href="#" class="text-blue">Average Grade: ${averageGrade}</a>
             </div> 
         `;
+      newClassBox.style.border = '1px solid #ccc';
+      newClassBox.style.borderRadius = '12px';
+      newClassBox.style.padding = '20px';
+      newClassBox.style.marginBottom = '20px';
+      newClassBox.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
 
         document.querySelector('#container1').appendChild(newStudentBox);
         saveStudentsToLocalStorage();
