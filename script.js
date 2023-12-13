@@ -33,7 +33,7 @@ const contentMap = {
             <h1>Welcome Myriam</h1>
             <div class="d-flex justify-content-between">
                 <div class="box text-center">
-                <p id="numberOfClasses">Number of classes: ${numberOfClassesSaved}</p>
+                <p id="numberOfClasses">Number of classes:</p>
                 </div>
                 <div class="box text-center">
                     <p>Box 2</p>

@@ -84,13 +84,13 @@ export function saveClassesToLocalStorage() {
     const classesCount = classes.length;
     localStorage.setItem('classes', JSON.stringify(classes));
     console.log(classesCount);
-    logNumberOfClassesSaved();
+    
     return classesCount;
 }
 
 function logNumberOfClassesSaved() {
     const numberOfClassesSaved = saveClassesToLocalStorage();
-    const classesCountPlaceholder = document.getElementById('classesCountPlaceholder');
+    const classesCountPlaceholder = document.getElementById('numberOfClasses');
     
     if (classesCountPlaceholder) {
         classesCountPlaceholder.textContent = numberOfClassesSaved;
