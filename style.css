@@ -17,11 +17,11 @@ body {
     position: relative;
 }
 box text-center student-box
-/* Add this to your existing CSS or create a new style.css file */
+
 .class-box-container {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap; /* Allow boxes to wrap to the next line if needed */
+    flex-wrap: wrap;
     min-height: fit-content;
 }
 
@@ -43,14 +43,13 @@ box text-center student-box
 }
 
 
-/* Add this to your existing CSS or create a new style.css file */
+
 .box.text-center.class-box, .box.text-center.student-box, .box.text-center.teacher-box   {
     display: inline-block;
-    margin: 0 10px; /* Adjust the margin as needed for spacing */
-    vertical-align: top; /* Align boxes at the top */
+    margin: 0 10px;
+    vertical-align: top; 
 }
 
-/* Optional: Add styles to the edit and remove icons */
 .box.text-center.class-box i.bi, .box.text-center.student-box i.bi, .box.text-center.teacher-box i.bi {
     color: blue;
     cursor: pointer;
