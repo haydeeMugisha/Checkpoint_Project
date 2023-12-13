@@ -1,9 +1,28 @@
 import { createClassModal, addNewClass, editClass, removeClass } from './classes.js';
+import {
+    createStudentModal,
+    addNewStudent,
+    editStudent,
+    removeStudent
+} from './students.js';
+
+import {
+    createTeacherModal,
+    addNewTeacher,
+    editTeacher,
+    removeTeacher
+} from './teachers.js';
 
 // Add the functions to the global scope
 window.addNewClass = addNewClass;
 window.editClass = editClass;
 window.removeClass = removeClass;
+window.addNewStudent = addNewStudent;
+window.editStudent = editStudent;
+window.removeStudent = removeStudent;
+window.addNewTeacher = addNewTeacher;
+window.editTeacher = editTeacher;
+window.removeTeacher = removeClass;
 
 const contentMap = {
     home: {
@@ -34,10 +53,22 @@ const contentMap = {
         ,
     },
     teachers: {
-        mainContent: '<h2>Teachers Information</h2><p>Teachers content goes here.</p>',
+        mainContent: `<h2>Teachers Information</h2>
+        <p>Teachers content goes here.</p>
+        <div class="position-absolute bottom-0">
+            <i class="bi bi-plus-circle fs-1 text-primary position-absolute bottom-0 start-50 translate-middle-x" onclick="addNewTeacher()"></i>
+            <p class="position-relative">Add New Teacher</p>
+        </div>
+        `,
     },
     students: {
-        mainContent: '<h2>Students Information</h2><p>Students content goes here.</p>',
+        mainContent: `<h2>Students Information</h2>
+        <p>Students content goes here.</p>
+        <div class="position-absolute bottom-0">
+            <i class="bi bi-plus-circle fs-1 text-primary position-absolute bottom-0 start-50 translate-middle-x" onclick="addNewStudent()"></i>
+            <p class="position-relative">Add New Student</p>
+        </div>
+        `,
     },
 };
 
