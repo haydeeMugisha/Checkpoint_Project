@@ -1,6 +1,5 @@
-// Reusable function to create a modal
+
 export function createClassModal(title, onSubmit) {
-    // Create a new modal
     const modalDiv = document.createElement('div');
     modalDiv.className = 'modal fade';
     modalDiv.id = 'classModal';
@@ -37,10 +36,8 @@ export function createClassModal(title, onSubmit) {
         </div>
     `;
 
-    // Append the modal to the body
     document.body.appendChild(modalDiv);
 
-    // Show the modal
     const classModal = new bootstrap.Modal(document.getElementById('classModal'));
     classModal.show();
 
@@ -54,13 +51,8 @@ export function createClassModal(title, onSubmit) {
         const description = document.getElementById('description').value;
 
         if (className && teacherName && description) {
-            // Call the provided onSubmit function with the form values
             onSubmit(className, teacherName, description);
-
-            // Close the modal
             classModal.hide();
-
-            // Remove the dynamically created modal from the DOM
             document.body.removeChild(modalDiv);
         }
     });
@@ -108,11 +100,8 @@ export function loadClassesFromLocalStorage() {
     const classes = JSON.parse(localStorage.getItem('classes')) || [];
 
     classes.forEach(({ className, teacherName, description }) => {
-        // Create a new box for the loaded class
         const newClassBox = document.createElement('div');
         newClassBox.className = 'box text-center class-box';
-
-        // Content of the loaded class box
         newClassBox.innerHTML = `
             <div class="options position-absolute top-0 end-0 mt-2 me-2">
                 <i class="bi bi-pencil" onclick="editClass(this)"></i>
@@ -134,11 +123,8 @@ export function loadClassesFromLocalStorage() {
 // Function to add a new class
 export function addNewClass() {
     createClassModal('Enter Class Details', (className, teacherName, description) => {
-      // Create a new box for the added class
       const newClassBox = document.createElement('div');
       newClassBox.className = 'box text-center class-box';
-  
-      // Content of the new class box
       newClassBox.innerHTML = `
         <div class="options position-absolute top-0 end-0 mt-2 me-2">
           <i class="bi bi-pencil" onclick="editClass(this)"></i>
@@ -153,7 +139,7 @@ export function addNewClass() {
         </div> 
       `;
   
-      // Add some additional styling
+      // Adding some additional styling
       newClassBox.style.border = '1px solid #ccc';
       newClassBox.style.borderRadius = '12px';
       newClassBox.style.padding = '20px';
