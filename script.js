@@ -1,4 +1,4 @@
-import { createClassModal, addNewClass, editClass, removeClass, saveClassesToLocalStorage, loadClassesFromLocalStorage } from './classes.js';
+import { createClassModal, addNewClass, editClass, removeClass, saveClassesToLocalStorage, loadClassesFromLocalStorage,logNumberOfClassesSaved } from './classes.js';
 import {
     createStudentModal,
     addNewStudent,
@@ -25,7 +25,11 @@ window.removeStudent = removeStudent;
 window.addNewTeacher = addNewTeacher;
 window.editTeacher = editTeacher;
 window.removeTeacher = removeClass;
-
+window.logNumberOfClassesSaved=logNumberOfClassesSaved;
+document.addEventListener('DOMContentLoaded', function () {
+    loadClassesFromLocalStorage();
+    logNumberOfClassesSaved();
+  });
 
 const contentMap = {
     home: {
@@ -82,4 +86,4 @@ window.showContent = function(contentId) {
 }
 
 showContent('home');
-
+logNumberOfClassesSaved();
