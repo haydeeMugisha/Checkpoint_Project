@@ -84,20 +84,24 @@ export function saveClassesToLocalStorage() {
     const classesCount = classes.length;
     localStorage.setItem('classes', JSON.stringify(classes));
     console.log(classesCount);
-    
+
     return classesCount;
 }
 
-function logNumberOfClassesSaved() {
-    const numberOfClassesSaved = saveClassesToLocalStorage();
+export function logNumberOfClassesSaved() {
+    const classes = JSON.parse(localStorage.getItem('classes')) || [];
+  
+    const classesCount = classes.length;
+    localStorage.setItem('classesCount', classesCount);
+  
     const classesCountPlaceholder = document.getElementById('numberOfClasses');
-    
+  
     if (classesCountPlaceholder) {
-        classesCountPlaceholder.textContent = numberOfClassesSaved;
+      classesCountPlaceholder.textContent = classesCount;
     }
-
-    return `Number of classes: ${numberOfClassesSaved}`;
-}
+  
+    return `Number of classes: ${classesCount}`;
+  }
 
 // Function to load classes from localStorage
 export function loadClassesFromLocalStorage() {
@@ -130,30 +134,37 @@ export function loadClassesFromLocalStorage() {
 // Function to add a new class
 export function addNewClass() {
     createClassModal('Enter Class Details', (className, teacherName, description) => {
-        // Create a new box for the added class
-        const newClassBox = document.createElement('div');
-        newClassBox.className = 'box text-center class-box';
-
-        // Content of the new class box
-        newClassBox.innerHTML = `
-            <div class="options position-absolute top-0 end-0 mt-2 me-2">
-                <i class="bi bi-pencil" onclick="editClass(this)"></i>
-                <i class="bi bi-trash" onclick="removeClass(this)"></i>
-            </div>
-            <h3>${className}</h3>
-            <p>Teacher: ${teacherName}</p>
-            <p>${description}</p>
-            <div class="d-flex justify-content-between m-2">
-            <a href="#" class="text-blue">Students</a>
-            <a href="#" class="text-blue">Teachers</a>
+      // Create a new box for the added class
+      const newClassBox = document.createElement('div');
+      newClassBox.className = 'box text-center class-box';
+  
+      // Content of the new class box
+      newClassBox.innerHTML = `
+        <div class="options position-absolute top-0 end-0 mt-2 me-2">
+          <i class="bi bi-pencil" onclick="editClass(this)"></i>
+          <i class="bi bi-trash" onclick="removeClass(this)"></i>
+        </div>
+        <h3 class="mb-2 font-weight-bold">${className}</h3>
+        <p class="mb-2"><span class="text-muted">${teacherName}</span></p>
+        <p class="mb-2">${description}</p>
+        <div class="d-flex justify-content-between m-2">
+          <a href="#" class="text-blue">Students</a>
+          <a href="#" class="text-blue ms-2">Teachers</a>
         </div> 
-        `;
-
-        // Append the new class box to the container
-        document.querySelector('#container1').appendChild(newClassBox);
-        saveClassesToLocalStorage();
+      `;
+  
+      // Add some additional styling
+      newClassBox.style.border = '1px solid #ccc';
+      newClassBox.style.borderRadius = '12px';
+      newClassBox.style.padding = '20px';
+      newClassBox.style.marginBottom = '20px';
+      newClassBox.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+  
+      // Append the new class box to the container
+      document.querySelector('#container1').appendChild(newClassBox);
+      saveClassesToLocalStorage();
     });
-}
+  }
 
 
 // Function to edit a class
