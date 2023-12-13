@@ -65,7 +65,68 @@ export function createClassModal(title, onSubmit) {
         }
     });
 }
+// Function to save classes to localStorage
+export function saveClassesToLocalStorage() {
+    const classBoxes = document.querySelectorAll('.class-box');
+    const classes = [];
 
+    classBoxes.forEach((classBox) => {
+        const h3Element = classBox.querySelector('h3');
+        const teacherElement = classBox.querySelector('p:nth-child(2)');
+        const descriptionElement = classBox.querySelector('p:nth-child(3)');
+
+        const className = h3Element ? h3Element.innerText : '';
+        const teacherName = teacherElement ? teacherElement.innerText.replace('Teacher: ', '') : '';
+        const description = descriptionElement ? descriptionElement.innerText : '';
+
+        classes.push({ className, teacherName, description });
+    });
+    const classesCount = classes.length;
+    localStorage.setItem('classes', JSON.stringify(classes));
+    console.log(classesCount);
+    logNumberOfClassesSaved();
+    return classesCount;
+}
+
+function logNumberOfClassesSaved() {
+    const numberOfClassesSaved = saveClassesToLocalStorage();
+    const classesCountPlaceholder = document.getElementById('classesCountPlaceholder');
+    
+    if (classesCountPlaceholder) {
+        classesCountPlaceholder.textContent = numberOfClassesSaved;
+    }
+
+    return `Number of classes: ${numberOfClassesSaved}`;
+}
+
+// Function to load classes from localStorage
+export function loadClassesFromLocalStorage() {
+    const classes = JSON.parse(localStorage.getItem('classes')) || [];
+
+    classes.forEach(({ className, teacherName, description }) => {
+        // Create a new box for the loaded class
+        const newClassBox = document.createElement('div');
+        newClassBox.className = 'box text-center class-box';
+
+        // Content of the loaded class box
+        newClassBox.innerHTML = `
+            <div class="options position-absolute top-0 end-0 mt-2 me-2">
+                <i class="bi bi-pencil" onclick="editClass(this)"></i>
+                <i class="bi bi-trash" onclick="removeClass(this)"></i>
+            </div>
+            <h3>${className}</h3>
+            <p>Teacher: ${teacherName}</p>
+            <p>${description}</p>
+            <div class="d-flex justify-content-between m-2">
+                <a href="#" class="text-blue">Students</a>
+                <a href="#" class="text-blue">Teachers</a>
+            </div> 
+        `;
+
+        // Append the loaded class box to the container
+        document.querySelector('#container1').appendChild(newClassBox);
+    });
+}
 // Function to add a new class
 export function addNewClass() {
     createClassModal('Enter Class Details', (className, teacherName, description) => {
@@ -90,8 +151,10 @@ export function addNewClass() {
 
         // Append the new class box to the container
         document.querySelector('#container1').appendChild(newClassBox);
+        saveClassesToLocalStorage();
     });
 }
+
 
 // Function to edit a class
 export function editClass(iconElement) {

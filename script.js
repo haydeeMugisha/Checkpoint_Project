@@ -1,4 +1,4 @@
-import { createClassModal, addNewClass, editClass, removeClass } from './classes.js';
+import { createClassModal, addNewClass, editClass, removeClass, saveClassesToLocalStorage, loadClassesFromLocalStorage } from './classes.js';
 import {
     createStudentModal,
     addNewStudent,
@@ -17,6 +17,8 @@ import {
 window.addNewClass = addNewClass;
 window.editClass = editClass;
 window.removeClass = removeClass;
+window.saveClassesToLocalStorage = saveClassesToLocalStorage;
+window.loadClassesFromLocalStorage = loadClassesFromLocalStorage;
 window.addNewStudent = addNewStudent;
 window.editStudent = editStudent;
 window.removeStudent = removeStudent;
@@ -24,13 +26,14 @@ window.addNewTeacher = addNewTeacher;
 window.editTeacher = editTeacher;
 window.removeTeacher = removeClass;
 
+
 const contentMap = {
     home: {
         mainContent: `
             <h1>Welcome Myriam</h1>
             <div class="d-flex justify-content-between">
                 <div class="box text-center">
-                    <p>Box 1</p>
+                <p id="numberOfClasses">Number of classes: ${numberOfClassesSaved}</p>
                 </div>
                 <div class="box text-center">
                     <p>Box 2</p>
@@ -80,5 +83,3 @@ window.showContent = function(contentId) {
 
 showContent('home');
 
-//home section:
-//update the home page by adding the class numbers
