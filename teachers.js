@@ -92,10 +92,14 @@ export function loadTeachersFromLocalStorage() {
             <p>${description}</p>
             <div class="d-flex justify-content-between m-2">
                 <a href="#" class="text-blue">Students</a>
-                <a href="#" class="text-blue">Classes</a>
+                <a href="#" class="text-blue ms-2">Classes</a>
             </div> 
         `;
-
+      newClassBox.style.border = '1px solid #ccc';
+      newClassBox.style.borderRadius = '12px';
+      newClassBox.style.padding = '20px';
+      newClassBox.style.marginBottom = '20px';
+      newClassBox.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
         document.querySelector('#container1').appendChild(newTeacherBox);
     });
 }
