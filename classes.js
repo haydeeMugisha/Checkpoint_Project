@@ -163,7 +163,7 @@ export function editClass(iconElement) {
     const existingDescription = classBox.querySelector('p:nth-child(3)').innerText;
 
     createClassModal('Edit Class Details', (editedClassName, editedTeacherName, editedDescription) => {
-        // Update the content of the class box
+
         classBox.innerHTML = `
             <h3>${editedClassName}</h3>
             <p>Teacher: ${editedTeacherName}</p>
